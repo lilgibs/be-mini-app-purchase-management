@@ -1,5 +1,6 @@
 export interface IPaginationProps {
-  currentPage: number,
+  page: number,
+  limit:number,
   totalPage: number,
   totalDisplayedRows: number,
   totalRows: number,

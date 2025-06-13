@@ -22,8 +22,11 @@ app.use("/api", router);
 
 // Global error handler (optional)
 app.use((err: any, req: express.Request, res: express.Response, _next: express.NextFunction) => {
-  console.error(err.stack);
-  res.status(500).json({ message: "Something went wrong" });
+const statusCode = err.statusCode || 500;
+  res.status(statusCode).json({
+    statusCode: statusCode,
+    message: err.message
+  });
 });
 
 // Port
